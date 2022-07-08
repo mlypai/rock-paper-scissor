@@ -13,18 +13,31 @@
         Type your turn and hope that Math.random() would pick wrong one.</p>
 
     <div class="userChoice">
-        <label for="choice">Rock, Paper, Scissors?</label>
-        <br><input tupe="text" id="choice">
+        <label for="playerSelection">Rock, Paper, Scissors?</label>
+        <input tupe="text" id="playerSelection" class="'playerSelection">
         <input type="submit" value="Submit choice" class="choiceSubmit">
     </div>
 
     <div class="results">
         <p class="counter"></p>
-        <p class="matches"></p>
+        <p class="rounds"></p>
         <p class="winner"></p>
     </div>
 </body>
 <script>
+
+    const counter = document.querySelector('.counter');
+    const rounds = document.querySelector('.rounds');
+    const winner = document.querySelector('.winner');
+
+    const choiceSubmit = document.querySelector('.choiceSubmit');
+    let playerMove = '';
+
+    let playerWin = 0;
+    let computerWin = 0;
+
+    counter.textContent = playerWin + ' : ' + computerWin;
+
     /* Choose random number between 1-3 and return value assigned to that number */
     function computerPlay(){
         let play = Math.floor(Math.random() * 3) + 1;
@@ -35,15 +48,35 @@
         }
     }
     /* Compare winning and Tie requirenments and return result */
-    function game(playerSelection, computerSelection)
+    function playRound(playerSelection, computerSelection)
     {
         if(playerSelection === computerSelection)
             return "It's a Tie!";
         if(playerSelection === 'Rock' && computerSelection === "Scissors" ||
         playerSelection === 'Scissors' && computerSelection === 'Paper' || 
         playerSelection === 'Paper' && computerSelection === 'Rock')
+        {
+            playerWin++;
             return `You win! ${playerSelection} beats ${computerSelection}`;
+        }
+        computerWin++;
         return `You lose! ${computerSelection} beats ${playerSelection}`;
     }
+    /* Checking users input and logging the game */
+    function game()
+    {
+        winner.textContent = '';
+        if(/Rock/i.test(playerSelection.value))
+            playerMove =  'Rock';
+        else if(/Paper/i.test(playerSelection.value))
+            playerMove = 'Paper';
+        else if(/Scissors/i.test(playerSelection.value))
+            playerMove = 'Scissors';
+        else
+            return winner.textContent = 'Please choose between rock, paper and scissors or check the spelling';
+        rounds.innerHTML += playRound(playerMove, computerPlay()) + "<br>";
+        counter.textContent = playerWin + ' : ' + computerWin;
+    }
+    choiceSubmit.addEventListener('click', game);
 </script>
 </html>

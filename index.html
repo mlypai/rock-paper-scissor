@@ -9,7 +9,8 @@
 <body>
     <h1>Rock-Paper-Scissors game</h1>
 
-    <p>Here you play RPS game, you need to beat computer 5 times to win.<br>Type your turn and hope that Math.random() would pick wrong one.</p>
+    <p>Here you play RPS game, you need to beat computer 5 times to win.<br>
+        Type your turn and hope that Math.random() would pick wrong one.</p>
 
     <div class="userChoice">
         <label for="choice">Rock, Paper, Scissors?</label>
@@ -24,6 +25,14 @@
     </div>
 </body>
 <script>
-
+    function computerPlay(){
+        let play = Math.floor(Math.random() * 3) + 1;
+        switch(play){
+            case 1: return "rock";
+            case 2: return "paper";
+            case 3: return "scissor";
+        }
+    }
+    console.log(computerPlay());
 </script>
 </html>

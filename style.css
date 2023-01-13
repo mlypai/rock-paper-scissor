@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Dancing Script", sans-serif;
+    font-size: 36px;
+    height: 100vh;
+}
+
+.body,
+.results,
+.userChoice > * {
+    margin: 0;
+}
+
+.title{  
+    align-self: center;
+    margin: 0px 50px;
+    font-size: 60px;
+    padding: 20px 0px;
+}
+
+.userChoice {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px 50px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+}
+
+.selection input {
+    max-height: 100px;
+    max-width: auto;
+}
+
+.results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24px;
+    align-items: center;
+}
+
+.rounds {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+}
+
+.rounds img {
+    height: 300px;
+    width: 300px;
+    margin: 0px 100px;
+}
+
+.popup {
+    visibility: hidden;
+    position: fixed;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -250px;
+}
+
+.popup .show {
+    visibility: visible;
+    visibility: visible;
+    animation: fadeIn 0.25s;
+}
+  
+  /* Add animation (fade in the popup) */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+.popup .popuptext {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+    background-color: #555;
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+  }
+  
+button{
+    background: transparent;
+    width: 100px;
+    height: 50px;
+    font-size: 24px;
+    font-family: "Dancing Script", sans-serif;
+    color: #fff;
+    border-radius: 50px;
+}
+
+.footer {
+    font-size: 24px;
+    max-height: 30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    padding: 0;
+    text-align: right;
+}
+
+.footer p{
+    margin:0 10px;
+}
+
+a{
+    color: black;
+}
